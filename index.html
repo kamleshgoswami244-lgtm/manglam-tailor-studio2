@@ -1,0 +1,176 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title> Manglam Tailor Studio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  header h1 { font-size: 1.8rem; }
+  nav { flex-wrap: wrap; gap: 15px; }
+  section { padding: 20px 10px; }
+  .gallery img { max-width: 100%; }
+}
+
+@media (min-width: 769px) {
+  .card { padding: 25px; }
+}
+    body { font-family: 'Poppins', sans-serif; background: #f5f7fa; color: #333; }
+
+    header { background: linear-gradient(135deg, #1e1e2f, #3a3a5a); color: white; padding: 40px 20px; text-align: center; }
+    nav { background: white; display: flex; justify-content: center; gap: 30px; padding: 15px; box-shadow: 0 2px 10px rgba(0,0,0,0.05); position: sticky; top: 0; }
+    nav a { text-decoration: none; color: #333; font-weight: 500; }
+    section { max-width: 1000px; margin: auto; padding: 40px 20px; }
+
+    .card { background: white; padding: 20px; border-radius: 15px; box-shadow: 0 5px 20px rgba(0,0,0,0.05); margin-bottom: 20px; }
+
+    .gallery { position: relative; overflow: hidden; }
+    .gallery-track { display: flex; transition: transform 0.5s ease; }
+    .gallery img { width: 100%; max-width: 300px; margin-right: 10px; border-radius: 12px; }
+
+    .controls { text-align: center; margin-top: 10px; }
+    .controls button { margin: 5px; padding: 8px 15px; }
+
+    form input, form textarea, form select {
+      width: 100%; padding: 12px; margin: 8px 0; border-radius: 8px; border: 1px solid #ddd;
+    }
+
+    button { background: #25D366; color: white; padding: 12px; border: none; border-radius: 8px; width: 100%; cursor: pointer; }
+
+    .whatsapp { position: fixed; bottom: 20px; right: 20px; background: #25D366; color: white; padding: 16px; border-radius: 50%; font-size: 22px; text-decoration: none; }
+
+    footer { text-align: center; padding: 20px; background: #1e1e2f; color: white; margin-top: 40px; }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>Manglam Tailor Studio</h1>
+  <p>Perfect Fit. Premium Stitching.</p>
+</header>
+
+<nav>
+  <a href="#home">Home</a>
+  <a href="#order">Order</a>
+  <a href="#gallery">Gallery</a>
+  <a href="#contact">Contact</a>
+</nav>
+
+<section id="home">
+  <div class="card">
+    <h2>Welcome</h2>
+    <p>We create custom-fitted clothing with modern designs and perfect finishing.</p>
+     <h1>ONLY FOR WOMEN & GIRL</h1>
+    <h1>delivery charge extra</h1>
+  </div>
+</section>
+
+<section id="order">
+  <div class="card">
+    <h2>Place Your Order</h2>
+    <form onsubmit="sendToWhatsApp(event)">
+      <input type="text" id="name" placeholder="Your Name" required>
+      <input type="text" id="phone" placeholder="Phone Number" required>
+      <select id="type">
+        <option>FROCK</option>
+        <option>CHANIYA CHOLI</option>
+        <option>Blouse</option>
+        <option>KURTI</option>
+         <option>DRESS</option>
+         <option>Other</option>
+      </select>
+      <textarea id="measure" placeholder="Enter Measurements"></textarea>
+      <input type="date" id="date">
+
+      <label style="margin-top:10px; display:block; font-weight:500;">Upload Design Photo</label>
+      <input type="file" id="design" accept="image/*" onchange="previewImage(event)">
+      <img id="preview" style="margin-top:10px; max-width:100%; border-radius:10px; display:none;" />
+
+      <button type="submit">Order via WhatsApp</button>
+    </form>
+    </form>
+  </div>
+</section>
+
+<section id="gallery">
+  <div class="card">
+    <h2>Our Work</h2>
+    <div class="gallery">
+      <div class="gallery-track" id="track">
+        <img src="imag/1a41c6a44d8504dd0bb13cf3400cfea6.jpg" />
+        <img src=" imag/8e9c8a024e72ed23de5a625ef7ffd5c4.jpg"/>
+        <img src="imag/11d935546c55a277084a3f3264d6aa56.jpg" />
+        <img src="imag/41ViV3-nzjL._AC_SX342_SY445_QL70_ML2_.jpg" />
+      </div>
+    </div>
+    <div class="controls">
+      <button onclick="move(-1)">⬅</button>
+      <button onclick="move(1)">➡</button>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="card">
+    <h2>Contact</h2>
+    <p><strong>Phone:</strong> +91 8758150649</p>
+    <p><strong>Address:</strong> Your Shop Address, navsari</p>
+  </div>
+</section>
+
+<a class="whatsapp" href="https://wa.me/918758150649" target="_blank">💬</a>
+
+<footer>
+  <p>© 2026 Manglam Tailor Studio</p>
+</footer>
+
+<script>
+function sendToWhatsApp(e) {
+  e.preventDefault();
+  let name = document.getElementById('name').value;
+  let phone = document.getElementById('phone').value;
+  let type = document.getElementById('type').value;
+  let measure = document.getElementById('measure').value;
+  let date = document.getElementById('date').value;
+
+  let msg = `Name: ${name}%0APhone: ${phone}%0ACloth: ${type}%0AMeasurements: ${measure}%0ADelivery: ${date}`;
+
+  window.open(`https://wa.me/918758150649?text=${msg}`, '_blank');
+}
+
+let msg = encodeURIComponent(
+`Name: ${name}
+Phone: ${phone}
+Cloth: ${type}
+Measurements: ${measure}
+Delivery: ${date}
+
+Please attach your design photo`
+);
+let index = 0;
+function move(step) {
+  const track = document.getElementById('track');
+  index += step;
+  if(index < 0) index = 0;
+  if(index > 2) index = 2;
+  track.style.transform = `translateX(-${index * 310}px)`;
+}
+function previewImage(event) {
+  const file = event.target.files[0];
+  if (file) {
+    const preview = document.getElementById('preview');
+    preview.src = URL.createObjectURL(file);
+    preview.style.display = 'block';
+  }
+}
+
+</script>
+
+</body>
+</html>
+
