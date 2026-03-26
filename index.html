@@ -76,6 +76,7 @@
     <form onsubmit="sendToWhatsApp(event)">
       <input type="text" id="name" placeholder="Your Name" required>
       <input type="text" id="phone" placeholder="Phone Number" required>
+      <input type="addresh" id="phone" placeholder="addresh" required>
       <select id="type">
         <option>FROCK</option>
         <option>CHANIYA CHOLI</option>
@@ -137,6 +138,7 @@ function sendToWhatsApp(e) {
   let type = document.getElementById('type').value;
   let measure = document.getElementById('measure').value;
   let date = document.getElementById('date').value;
+  let addresh = document.getElementById('addresh').value;
 
   let msg = `Name: ${name}%0APhone: ${phone}%0ACloth: ${type}%0AMeasurements: ${measure}%0ADelivery: ${date}`;
 
@@ -149,6 +151,7 @@ Phone: ${phone}
 Cloth: ${type}
 Measurements: ${measure}
 Delivery: ${date}
+addresh: ${addresh}
 
 Please attach your design photo`
 );
