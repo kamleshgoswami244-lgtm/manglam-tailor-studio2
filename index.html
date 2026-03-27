@@ -125,7 +125,7 @@
   <div class="card">
     <h2>Our Work</h2>
     <div class="gallery">
-      <div class="gallery-track" id="track">
+     
         <img src="https://via.placeholder.com/300">
         <img src="cd6ca668be3a06c04f08831102745969.jpg "/>
         <img src="imag/11d935546c55a277084a3f3264d6aa56.jpg" />
@@ -184,14 +184,8 @@ addresh: ${addresh}
 
 Please attach your design photo`
 );
-let index = 0;
-function move(step) {
-  const track = document.getElementById('track');
-  index += step;
-  if(index < 0) index = 0;
-  if(index > 2) index = 2;
-  track.style.transform = `translateX(-${index * 310}px)`;
-}
+
+
 function previewImage(event) {
   const file = event.target.files[0];
   if (file) {
@@ -200,8 +194,21 @@ function previewImage(event) {
     preview.style.display = 'block';
   }
 }
+  document.querySelectorAll('.gallery img').forEach(img => {
+  img.onclick = () => {
+    document.getElementById('popup').style.display = 'flex';
+    document.getElementById('popup-img').src = img.src;
+  };
+});
+
+document.getElementById('popup').onclick = () => {
+  document.getElementById('popup').style.display = 'none';
+};
 
 </script>
+  <div id="popup" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.8); justify-content:center; align-items:center;">
+  <img id="popup-img" style="max-width:90%; border-radius:10px;">
+</div>
 
 </body>
 </html>
