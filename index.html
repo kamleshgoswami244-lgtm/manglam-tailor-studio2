@@ -29,10 +29,11 @@
 
     .card { background: white; padding: 20px; border-radius: 15px; box-shadow: 0 5px 20px rgba(0,0,0,0.05); margin-bottom: 20px; }
 
-    .gallery { position: relative; overflow: hidden; }
-    .gallery-track { display: flex; transition: transform 0.5s ease; }
-    .gallery img { width: 100%; max-width: 300px; margin-right: 10px; border-radius: 12px; }
-
+    .gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 15px;
+}
     .controls { text-align: center; margin-top: 10px; }
     .controls button { margin: 5px; padding: 8px 15px; }
 
@@ -123,20 +124,17 @@
 
 <section id="gallery">
   <div class="card">
-    <h2>Our Work</h2>
+    <h2>Our Work</h2> 
+    
     <div class="gallery">
-     
-        <img src="https://via.placeholder.com/300">
-        <img src="cd6ca668be3a06c04f08831102745969.jpg "/>
-        <img src="imag/11d935546c55a277084a3f3264d6aa56.jpg" />
-        <img src="imag/41ViV3-nzjL._AC_SX342_SY445_QL70_ML2_.jpg" />
-      </div>
-    </div>
-    <div class="controls">
-      <button onclick="move(-1)">⬅</button>
-      <button onclick="move(1)">➡</button>
-    </div>
-  </div>
+  <img src="https://via.placeholder.com/300">
+  <img src="cd6ca668be3a06c04f08831102745969.jpg">
+  <img src="imag/11d935546c55a277084a3f3264d6aa56.jpg">
+  <img src="imag/41ViV3-nzjL._AC_SX342_SY445_QL70_ML2_.jpg">
+</div>
+    
+    
+ 
 </section>
 
 <section id="contact">
